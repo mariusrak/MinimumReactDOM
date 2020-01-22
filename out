@@ -1,0 +1,262 @@
+| (#1) Profiling: ProjectContext resolveConstraints
+| 
+| ProjectContext resolveConstraints.............................2,129 ms (1)
+| └─ _resolveConstraints........................................2,122 ms (1)
+|    ├─ bundler.readJsImage.......................................482 ms (1)
+|    │  └─ meteorNpm.rebuildIfNonPortable.........................457 ms (16)
+|    │     └─ meteorNpm.isPortable                                324 ms (197)
+|    └─ JsImage#load............................................1,599 ms (1)
+|       ├─ runJavaScript packages/fetch.js........................126 ms (1)
+|       │  └─ require("/node_modules/meteor/fetch/server.js").....126 ms (1)
+|       │     └─ require("node-fetch")                            125 ms (1)
+|       ├─ runJavaScript packages/dynamic-import.js...............322 ms (1)
+|       │  └─ require("/node_modules/meteor/dynamic-import/server.js").321 ms (1)
+|       │     └─ require("./security.js")                         317 ms (1)
+|       ├─ runJavaScript packages/npm-mongo.js....................356 ms (1)
+|       │  └─ Npm.require("mongodb")                              352 ms (1)
+|       └─ runJavaScript packages/boilerplate-generator.js........205 ms (1)
+|          └─ require("/node_modules/meteor/boilerplate-generator/generator.js").172 ms (1)
+|             └─ require("/node_modules/meteor/boilerplate-generator/node_modules/combined-stream2/index.js") 166 ms (1)
+| 
+| Top leaves:
+| require("./security.js")...................................317 ms (1)
+| files.stat.................................................179 ms (862)
+| 
+| (#1) Total: 2,129 ms (ProjectContext resolveConstraints)
+| 
+[[[[[ C:\Users\Márius Rak\Desktop\MinimumReactDOM ]]]]]
+
+=> Started proxy.
+| (#2) Profiling: ProjectContext prepareProjectForBuild
+| 
+| ProjectContext prepareProjectForBuild.........................2,444 ms (1)
+| └─ _buildLocalPackages........................................2,421 ms (1)
+|    ├─ _ensurePackageLoaded(babel-compiler)......................448 ms (1)
+|    │  └─ IsopackCache Load local isopack........................378 ms (1)
+|    │     └─ Isopack#initFromPath................................377 ms (1)
+|    │        └─ meteorNpm.rebuildIfNonPortable...................371 ms (1)
+|    │           └─ meteorNpm.isPortable                          261 ms (156)
+|    ├─ _ensurePackageLoaded(base64)..............................293 ms (1)
+|    │  └─ _ensurePackageLoaded(ecmascript).......................286 ms (1)
+|    │     └─ IsopackCache Load local isopack.....................259 ms (1)
+|    │        └─ Isopack#initFromPath.............................259 ms (1)
+|    │           └─ bundler.readJsImage...........................256 ms (1)
+|    │              └─ meteorNpm.rebuildIfNonPortable.............254 ms (7)
+|    │                 └─ meteorNpm.isPortable                    180 ms (170)
+|    ├─ _ensurePackageLoaded(minifier-css)........................239 ms (1)
+|    │  └─ IsopackCache Load local isopack........................239 ms (1)
+|    │     └─ Isopack#initFromPath................................238 ms (1)
+|    │        └─ meteorNpm.rebuildIfNonPortable...................229 ms (1)
+|    │           └─ meteorNpm.isPortable                          168 ms (132)
+|    ├─ _ensurePackageLoaded(server-render)                       120 ms (1)
+|    ├─ _ensurePackageLoaded(standard-minifier-css)...............465 ms (1)
+|    │  └─ IsopackCache Load local isopack........................465 ms (1)
+|    │     └─ Isopack#initFromPath................................465 ms (1)
+|    │        └─ bundler.readJsImage..............................462 ms (1)
+|    │           └─ meteorNpm.rebuildIfNonPortable................456 ms (11)
+|    │              └─ meteorNpm.isPortable                       333 ms (310)
+|    ├─ _ensurePackageLoaded(standard-minifier-js)................264 ms (1)
+|    │  └─ IsopackCache Load local isopack........................264 ms (1)
+|    │     └─ Isopack#initFromPath................................264 ms (1)
+|    │        └─ bundler.readJsImage..............................262 ms (1)
+|    │           └─ meteorNpm.rebuildIfNonPortable................257 ms (11)
+|    │              └─ meteorNpm.isPortable                       187 ms (180)
+|    ├─ _ensurePackageLoaded(static-html).........................233 ms (1)
+|    │  └─ IsopackCache Load local isopack........................233 ms (1)
+|    │     └─ Isopack#initFromPath................................232 ms (1)
+|    │        └─ bundler.readJsImage..............................231 ms (1)
+|    │           └─ meteorNpm.rebuildIfNonPortable................221 ms (9)
+|    │              └─ meteorNpm.isPortable                       159 ms (142)
+|    └─ _ensurePackageLoaded(typescript)..........................216 ms (1)
+|       └─ IsopackCache Load local isopack........................216 ms (1)
+|          └─ Isopack#initFromPath................................215 ms (1)
+|             └─ bundler.readJsImage..............................213 ms (1)
+|                └─ meteorNpm.rebuildIfNonPortable................210 ms (7)
+|                   └─ meteorNpm.isPortable                       147 ms (170)
+| 
+| Top leaves:
+| files.stat.................................................807 ms (5727)
+| files.readFile.............................................364 ms (1701)
+| files.watchFile............................................193 ms (5189)
+| files.lstat................................................168 ms (1364)
+| other meteorNpm.rebuildIfNonPortable.......................106 ms (47)
+| 
+| (#2) Total: 2,444 ms (ProjectContext prepareProjectForBuild)
+| 
+| (#3) Profiling: Build App
+| 
+| Build App.....................................................9,550 ms (1)
+| └─ bundler.bundle.............................................9,550 ms (1)
+|    ├─ compiler.compile(the app)...............................2,148 ms (1)
+|    │  └─ compileUnibuild (the app)............................2,148 ms (3)
+|    │     ├─ Isopack#ensurePluginsInitialized..................1,914 ms (42)
+|    │     │  └─ JsImage#load...................................1,910 ms (6)
+|    │     │     ├─ runJavaScript packages/modules.js.............213 ms (5)
+|    │     │     │  └─ require("/node_modules/meteor/modules/server.js").202 ms (4)
+|    │     │     │     └─ require("./reify.js")...................199 ms (4)
+|    │     │     │        └─ require("reify/lib/runtime")         196 ms (4)
+|    │     │     ├─ runJavaScript packages/ecmascript-runtime.js..337 ms (5)
+|    │     │     │  └─ require("./node_modules/meteor/ecmascript-runtime/runtime.js").337 ms (1)
+|    │     │     │     └─ require("meteor-ecmascript-runtime")    337 ms (1)
+|    │     │     ├─ runJavaScript packages/caching-compiler.js....203 ms (1)
+|    │     │     │  └─ require("./node_modules/meteor/caching-compiler/caching-compiler.js").178 ms (1)
+|    │     │     │     └─ require("babel-runtime/helpers/possibleConstructorReturn").146 ms (1)
+|    │     │     │        └─ Npm.require("babel-runtime/helpers/possibleConstructorReturn") 145 ms (1)
+|    │     │     ├─ runJavaScript packages/ecmascript-runtime-server.js.118 ms (4)
+|    │     │     │  └─ require("/node_modules/meteor/ecmascript-runtime-server/runtime.js").117 ms (4)
+|    │     │     │     └─ require("core-js/modules/es.symbol.async-iterator") 117 ms (4)
+|    │     │     ├─ runJavaScript packages/fetch.js...............185 ms (2)
+|    │     │     │  └─ require("/node_modules/meteor/fetch/server.js").185 ms (2)
+|    │     │     │     └─ require("node-fetch")                   184 ms (2)
+|    │     │     └─ runJavaScript packages/minifier-css.js........425 ms (1)
+|    │     │        └─ require("/node_modules/meteor/minifier-css/minifier.js").422 ms (1)
+|    │     │           └─ require("/node_modules/meteor/minifier-css/node_modules/cssnano/dist/index.js") 335 ms (1)
+|    │     └─ PackageSource#_findSources                          220 ms (3)
+|    ├─ bundler.bundle..makeClientTarget........................4,458 ms (2)
+|    │  └─ Target#make..........................................4,458 ms (2)
+|    │     └─ Target#_emitResources.............................4,391 ms (2)
+|    │        └─ PackageSourceBatch.computeJsOutputFilesMap.....4,300 ms (2)
+|    │           ├─ ImportScanner#scanImports for modules         102 ms (2)
+|    │           ├─ ImportScanner#scanImports for ecmascript-runtime-client.1,195 ms (2)
+|    │           │  ├─ ImportScanner#findImportedModuleIdentifiers 263 ms (370)
+|    │           │  ├─ ImportScanner#resolve......................610 ms (1224)
+|    │           │  │  ├─ files.stat                              213 ms (661)
+|    │           │  │  ├─ safeWatcher.watch.......................217 ms (1034)
+|    │           │  │  │  └─ files.stat                           150 ms (661)
+|    │           │  │  └─ other ImportScanner#resolve             171 ms
+|    │           │  └─ ImportScanner#readFile                     225 ms (367)
+|    │           ├─ ImportScanner#scanImports for webapp........1,478 ms (2)
+|    │           │  ├─ Npm.require("meteor-babel")                547 ms (1)
+|    │           │  └─ other ImportScanner#scanImports for webapp 922 ms
+|    │           └─ ImportScanner#scanImports for the app.......1,173 ms (2)
+|    │              └─ ImportScanner#findImportedModuleIdentifiers 1,017 ms (33)
+|    ├─ bundler.bundle..makeServerTarget..........................573 ms (1)
+|    │  └─ Target#make............................................573 ms (1)
+|    │     └─ Target#_emitResources...............................549 ms (1)
+|    │        └─ PackageSourceBatch.computeJsOutputFilesMap       521 ms (1)
+|    └─ bundler writeSiteArchive................................2,353 ms (1)
+|       ├─ bundler writeTargetToPath............................1,934 ms (3)
+|       │  ├─ ClientTarget#write                                  117 ms (2)
+|       │  └─ ServerTarget#write................................1,719 ms (1)
+|       │     └─ JsImage#write..................................1,669 ms (1)
+|       │        ├─ files.stat                                    244 ms (405)
+|       │        ├─ Builder#copyNodeModulesDirectory..............825 ms (15)
+|       │        │  ├─ Builder#_ensureDirectory                   117 ms (391)
+|       │        │  ├─ files.symlinkWithOverwrite.................244 ms (263)
+|       │        │  │  └─ files.symlink                           200 ms (263)
+|       │        │  └─ other Builder#copyNodeModulesDirectory     130 ms
+|       │        ├─ safeWatcher.watch.............................340 ms (806)
+|       │        │  └─ files.stat                                 258 ms (444)
+|       │        └─ other JsImage#write                           136 ms
+|       ├─ Builder#complete.......................................286 ms (1)
+|       │  └─ files.renameDirAlmostAtomically.....................286 ms (1)
+|       │     └─ files.rename                                     283 ms (2)
+|       └─ other bundler writeSiteArchive                         124 ms
+| 
+| Top leaves:
+| files.stat...............................................1,463 ms (5347)
+| other ImportScanner#scanImports for webapp.................922 ms (2)
+| files.rename...............................................354 ms (13)
+| files.readFile.............................................327 ms (1377)
+| files.writeFile............................................253 ms (229)
+| files.watchFile............................................236 ms (6363)
+| files.symlink..............................................201 ms (264)
+| other ImportScanner#resolve................................171 ms (1224)
+| other JsImage#write........................................136 ms (1)
+| other Builder#copyNodeModulesDirectory.....................130 ms (15)
+| other bundler writeSiteArchive.............................124 ms (1)
+| 
+| (#3) Total: 9,550 ms (Build App)
+| 
+[94mI20200122-18:13:51.928(1)? [39m| (#1) Profiling: Server startup
+[94mI20200122-18:13:53.275(1)? [39mGreetings from /server/main.js!
+[94mI20200122-18:13:53.298(1)? [39m| 
+[94mI20200122-18:13:53.304(1)? [39m| Server startup................................................1,371 ms (1)
+[94mI20200122-18:13:53.305(1)? [39m| └─ Load server bundles........................................1,347 ms (1)
+[94mI20200122-18:13:53.305(1)? [39m|    ├─ packages/fetch.js.........................................534 ms (1)
+[94mI20200122-18:13:53.306(1)? [39m|    │  └─ require("/node_modules/meteor/fetch/server.js")........534 ms (1)
+[94mI20200122-18:13:53.306(1)? [39m|    │     └─ require("node-fetch")                               534 ms (1)
+[94mI20200122-18:13:53.307(1)? [39m|    ├─ packages/boilerplate-generator.js.........................111 ms (1)
+[94mI20200122-18:13:53.307(1)? [39m|    │  └─ require("/node_modules/meteor/boilerplate-generator/generator.js").111 ms (1)
+[94mI20200122-18:13:53.308(1)? [39m|    │     └─ require("/node_modules/meteor/boilerplate-generator/node_modules/combined-stream2/index.js") 108 ms (1)
+[94mI20200122-18:13:53.308(1)? [39m|    ├─ packages/webapp.js........................................277 ms (1)
+[94mI20200122-18:13:53.308(1)? [39m|    │  └─ require("/node_modules/meteor/webapp/webapp_server.js") 277 ms (1)
+[94mI20200122-18:13:53.309(1)? [39m|    └─ packages/server-render.js.................................126 ms (1)
+[94mI20200122-18:13:53.309(1)? [39m|       └─ require("/node_modules/meteor/server-render/server.js").126 ms (1)
+[94mI20200122-18:13:53.309(1)? [39m|          └─ require("/node_modules/meteor/server-render/server-register.js") 121 ms (1)
+[94mI20200122-18:13:53.310(1)? [39m| 
+[94mI20200122-18:13:53.310(1)? [39m| Top leaves:
+[94mI20200122-18:13:53.315(1)? [39m| require("node-fetch")......................................534 ms (1)
+[94mI20200122-18:13:53.316(1)? [39m| require("/node_modules/meteor/boilerplate-generator/node_modules/combined-stream2/index.js").108 ms (1)
+[94mI20200122-18:13:53.316(1)? [39m| 
+[94mI20200122-18:13:53.317(1)? [39m| (#1) Total: 1,371 ms (Server startup)
+[94mI20200122-18:13:53.317(1)? [39m| 
+=> Started your app.
+
+=> App running at: http://localhost:3000/
+   Type Control-C twice to stop.
+
+=> Server modified -- restarting...| (#4) Profiling: ProjectContext prepareProjectForBuild
+| 
+| ProjectContext prepareProjectForBuild                            91 ms (1)
+| 
+| Top leaves:
+| 
+| (#4) Total: 91 ms (ProjectContext prepareProjectForBuild)
+| 
+| (#5) Profiling: Rebuild App
+| 
+| files.watchFile                                                   0 ms (1)
+| Rebuild App.....................................................622 ms (1)
+| └─ bundler.bundle...............................................622 ms (1)
+|    ├─ bundler.bundle..makeClientTarget..........................157 ms (1)
+|    │  └─ Target#make............................................157 ms (1)
+|    │     └─ Target#_emitResources                               118 ms (1)
+|    └─ bundler writeSiteArchive..................................364 ms (1)
+|       ├─ bundler writeTargetToPath..............................260 ms (2)
+|       │  └─ ServerTarget#write..................................201 ms (1)
+|       │     └─ JsImage#write....................................183 ms (1)
+|       │        └─ Builder#copyNodeModulesDirectory              156 ms (15)
+|       └─ other bundler writeSiteArchive                         102 ms
+| 
+| Top leaves:
+| other bundler writeSiteArchive.............................102 ms (1)
+| 
+| (#5) Total: 623 ms (Rebuild App)
+| 
+                                   [94mI20200122-18:16:17.369(1)? [39m| (#1) Profiling: Server startup
+[94mI20200122-18:16:19.119(1)? [39mGreetings from /server/main.js!
+[94mI20200122-18:16:19.151(1)? [39m| 
+[94mI20200122-18:16:19.164(1)? [39m| Server startup................................................1,780 ms (1)
+[94mI20200122-18:16:19.165(1)? [39m| └─ Load server bundles........................................1,747 ms (1)
+[94mI20200122-18:16:19.165(1)? [39m|    ├─ packages/fetch.js.........................................218 ms (1)
+[94mI20200122-18:16:19.165(1)? [39m|    │  └─ require("/node_modules/meteor/fetch/server.js")........218 ms (1)
+[94mI20200122-18:16:19.166(1)? [39m|    │     └─ require("node-fetch")                               217 ms (1)
+[94mI20200122-18:16:19.166(1)? [39m|    ├─ packages/shell-server.js..................................251 ms (1)
+[94mI20200122-18:16:19.166(1)? [39m|    │  └─ require("/node_modules/meteor/shell-server/main.js")...251 ms (1)
+[94mI20200122-18:16:19.166(1)? [39m|    │     └─ require("/node_modules/meteor/shell-server/shell-server.js").180 ms (2)
+[94mI20200122-18:16:19.167(1)? [39m|    │        └─ require("repl")..................................173 ms (1)
+[94mI20200122-18:16:19.167(1)? [39m|    │           └─ Npm.require("repl")                           173 ms (1)
+[94mI20200122-18:16:19.167(1)? [39m|    ├─ packages/boilerplate-generator.js.........................309 ms (1)
+[94mI20200122-18:16:19.168(1)? [39m|    │  └─ require("/node_modules/meteor/boilerplate-generator/generator.js").307 ms (1)
+[94mI20200122-18:16:19.168(1)? [39m|    │     └─ require("/node_modules/meteor/boilerplate-generator/node_modules/combined-stream2/index.js") 301 ms (1)
+[94mI20200122-18:16:19.168(1)? [39m|    ├─ packages/webapp.js........................................436 ms (1)
+[94mI20200122-18:16:19.169(1)? [39m|    │  └─ require("/node_modules/meteor/webapp/webapp_server.js").435 ms (1)
+[94mI20200122-18:16:19.169(1)? [39m|    │     └─ require("/node_modules/meteor/webapp/node_modules/useragent/index.js") 107 ms (1)
+[94mI20200122-18:16:19.169(1)? [39m|    └─ packages/server-render.js.................................234 ms (1)
+[94mI20200122-18:16:19.170(1)? [39m|       └─ require("/node_modules/meteor/server-render/server.js").233 ms (1)
+[94mI20200122-18:16:19.170(1)? [39m|          └─ require("/node_modules/meteor/server-render/server-register.js").225 ms (1)
+[94mI20200122-18:16:19.170(1)? [39m|             └─ require("/node_modules/meteor/server-render/node_modules/parse5/lib/index.js") 128 ms (1)
+[94mI20200122-18:16:19.171(1)? [39m| 
+[94mI20200122-18:16:19.171(1)? [39m| Top leaves:
+[94mI20200122-18:16:19.181(1)? [39m| require("/node_modules/meteor/boilerplate-generator/node_modules/combined-stream2/index.js").301 ms (1)
+[94mI20200122-18:16:19.181(1)? [39m| require("node-fetch")......................................217 ms (1)
+[94mI20200122-18:16:19.182(1)? [39m| Npm.require("repl")........................................173 ms (1)
+[94mI20200122-18:16:19.182(1)? [39m| require("/node_modules/meteor/server-render/node_modules/parse5/lib/index.js").128 ms (1)
+[94mI20200122-18:16:19.183(1)? [39m| require("/node_modules/meteor/webapp/node_modules/useragent/index.js").107 ms (1)
+[94mI20200122-18:16:19.183(1)? [39m| 
+[94mI20200122-18:16:19.183(1)? [39m| (#1) Total: 1,780 ms (Server startup)
+[94mI20200122-18:16:19.183(1)? [39m| 
+=> Meteor server restarted
+=> Finished delayed build of web.browser.legacy in 312ms
+Terminate batch job (Y/N)? 
